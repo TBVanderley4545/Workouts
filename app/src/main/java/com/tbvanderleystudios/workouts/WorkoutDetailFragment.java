@@ -13,6 +13,7 @@ import android.view.ViewGroup;
  */
 public class WorkoutDetailFragment extends Fragment {
 
+    private long mWorkoutId;
 
     public WorkoutDetailFragment() {
         // Required empty public constructor
@@ -26,4 +27,7 @@ public class WorkoutDetailFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_workout_detail, container, false);
     }
 
+    public void setWorkoutId(long workoutId) {
+        mWorkoutId = workoutId;
+    }
 }

@@ -9,5 +9,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /*
+        Uncomment and fix this code once pulled down.
+
+        WorkoutDetailFragment workoutDetailFragment = (WorkoutDetailFragment) getFragmentManager().findFragmentById(R.id.detailFragment);
+
+        workoutDetailFragment.setWorkoutId(1);
+        */
     }
 }
