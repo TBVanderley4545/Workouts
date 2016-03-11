@@ -32,6 +32,7 @@ public class WorkoutDetailFragment extends android.app.Fragment {
     public void onStart() {
         super.onStart();
 
+        // Must get a reference to the root view of the fragment.
         View view = getView();
         if(view != null) {
             TextView title = (TextView) view.findViewById(R.id.workoutTitleTextView);
