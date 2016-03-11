@@ -12,7 +12,7 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        class="com.tbvanderleystudios.workouts.WorkoutDetailFragment"
+        android:name="com.tbvanderleystudios.workouts.WorkoutDetailFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_workout_detail"/>

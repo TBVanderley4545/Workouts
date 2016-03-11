@@ -10,12 +10,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*
-        Uncomment and fix this code once pulled down.
 
         WorkoutDetailFragment workoutDetailFragment = (WorkoutDetailFragment) getFragmentManager().findFragmentById(R.id.detailFragment);
 
-        workoutDetailFragment.setWorkoutId(1);
-        */
+        workoutDetailFragment.setWorkoutId(2);
+
     }
 }
