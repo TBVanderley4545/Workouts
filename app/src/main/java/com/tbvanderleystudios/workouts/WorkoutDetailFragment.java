@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class WorkoutDetailFragment extends android.app.Fragment {
 
     private long mWorkoutId;
+    private String mWorkoutTag = "WorkoutId";
 
     public WorkoutDetailFragment() {
         // Required empty public constructor
@@ -24,6 +25,10 @@ public class WorkoutDetailFragment extends android.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        if(savedInstanceState != null) {
+            mWorkoutId = savedInstanceState.getLong(mWorkoutTag);
+        }
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_workout_detail, container, false);
     }
@@ -47,5 +52,11 @@ public class WorkoutDetailFragment extends android.app.Fragment {
 
     public void setWorkoutId(long workoutId) {
         mWorkoutId = workoutId;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putLong(mWorkoutTag, mWorkoutId);
     }
 }
