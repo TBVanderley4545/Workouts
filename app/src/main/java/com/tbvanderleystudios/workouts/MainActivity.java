@@ -2,8 +2,10 @@ package com.tbvanderleystudios.workouts;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements WorkoutListFragment.WorkoutListListener {
 
@@ -17,17 +19,26 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
 
     @Override
     public void itemClicked(long id) {
-        WorkoutDetailFragment detail = new WorkoutDetailFragment();
+        View fragmentContainter = findViewById(R.id.detailFragmentContainer);
 
-        // Open up a Fragment transaction.
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        if(fragmentContainter != null) {
 
-        detail.setWorkoutId(id);
-        transaction.replace(R.id.detailFragmentContainer, detail);
-        transaction.addToBackStack(null);
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            WorkoutDetailFragment detail = new WorkoutDetailFragment();
 
-        // Close out the transaction.
-        transaction.commit();
+            // Open up a Fragment transaction.
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+            detail.setWorkoutId(id);
+            transaction.replace(R.id.detailFragmentContainer, detail);
+            transaction.addToBackStack(null);
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+
+            // Close out the transaction.
+            transaction.commit();
+        } else {
+            Intent intent = new Intent(this, DetailActivity.class);
+            intent.putExtra(DetailActivity.EXTRA_WORKOUT_ID, (int) id);
+            startActivity(intent);
+        }
     }
 }
