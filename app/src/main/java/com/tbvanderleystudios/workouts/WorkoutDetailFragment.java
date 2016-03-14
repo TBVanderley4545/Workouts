@@ -1,6 +1,7 @@
 package com.tbvanderleystudios.workouts;
 
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -28,6 +29,17 @@ public class WorkoutDetailFragment extends android.app.Fragment {
         if(savedInstanceState != null) {
             mWorkoutId = savedInstanceState.getLong(mWorkoutTag);
         }
+
+        // Create a new StopwatchFragment
+        StopwatchFragment stopwatchFragment = new StopwatchFragment();
+        // Begin the FragmentTransaction by using the getChileFragmentManager this time
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        // The actual transaction
+        fragmentTransaction.replace(R.id.stopwatchFramLayout, stopwatchFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        // Close out the transaction
+        fragmentTransaction.commit();
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_workout_detail, container, false);

@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
 
     @Override
     public void itemClicked(long id) {
-        View fragmentContainter = findViewById(R.id.detailFragmentContainer);
+        View fragmentContainer = findViewById(R.id.detailFragmentContainer);
 
-        if(fragmentContainter != null) {
+        if(fragmentContainer != null) {
 
             WorkoutDetailFragment detail = new WorkoutDetailFragment();
 
