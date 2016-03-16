@@ -7,13 +7,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StopwatchFragment extends android.app.Fragment {
+public class StopwatchFragment extends android.app.Fragment implements View.OnClickListener {
 
     // Number of seconds displayed on the stopwatch
     private int mMilliseconds = 0;
@@ -53,6 +55,17 @@ public class StopwatchFragment extends android.app.Fragment {
         View layout = inflater.inflate(R.layout.fragment_stopwatch, container, false);
 
         runTimer(layout);
+
+        // Create variable for each button element.
+        Button startButton = (Button) layout.findViewById(R.id.startButton);
+        Button stopButton = (Button) layout.findViewById(R.id.stopButton);
+        Button resetButton = (Button) layout.findViewById(R.id.resetButton);
+
+        // The current fragment implements an onClickListener; therefore, we can pass it to itself
+        // as an onClickerListener.
+        startButton.setOnClickListener(this);
+        stopButton.setOnClickListener(this);
+        resetButton.setOnClickListener(this);
 
         return layout;
     }
@@ -116,5 +129,19 @@ public class StopwatchFragment extends android.app.Fragment {
                 handler.postDelayed(this, 1);
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case R.id.startButton:
+                onClickStart(v);
+                break;
+            case R.id.stopButton:
+                onClickStop(v);
+                break;
+            case R.id.resetButton:
+                onClickReset(v);
+        }
     }
 }

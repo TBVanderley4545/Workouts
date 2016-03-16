@@ -21,8 +21,7 @@
         android:layout_below="@+id/timerTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="@string/start_button"
-        android:onClick="onClickStart"/>
+        android:text="@string/start_button"/>
 
     <Button
         android:id="@+id/stopButton"
@@ -31,8 +30,7 @@
         android:layout_below="@+id/startButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="@string/stop_button"
-        android:onClick="onClickStop"/>
+        android:text="@string/stop_button"/>
 
     <Button
         android:id="@+id/resetButton"
@@ -41,7 +39,6 @@
         android:layout_below="@+id/stopButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="@string/reset_button"
-        android:onClick="onClickStop"/>
+        android:text="@string/reset_button"/>
 
 </RelativeLayout>
